@@ -4,7 +4,7 @@ import User from './User';
 function Users() {
     const[users,setUsers]=useState([]);
     useEffect(()=>{
-        fetch('https://jsonplaceholder.typicode.com/users')
+        fetch(`${import.meta.env.VITE_BACKEND_BASE_URL}/users`)
         .then(res=>res.json())
         .then(adat=>setUsers(adat))
         .catch(err=>console.log(err));

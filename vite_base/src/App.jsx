@@ -5,6 +5,7 @@ import List from './components/List';
 import JsonPholder from './components/JsonPholder';
 import Users from './components/Users';
 import Todos from './components/Todos';
+import Images from './components/Images';
 
 
 function App() {
@@ -13,10 +14,10 @@ function App() {
   return (
     <>
       <Header headerText={"React app vite-al"}/>
-      <Todos />
-      <Users />
-      <JsonPholder />
-      <List />
+      <Images />
+      
+      
+      
     </>
   )
 }

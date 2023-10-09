@@ -4,7 +4,7 @@ function JsonPholder() {
     const[posts,setPosts]=useState([]);
 
     useEffect(()=>{
-        fetch('https://jsonplaceholder.typicode.com/posts/')
+        fetch(`${import.meta.env.VITE_BACKEND_BASE_URL}/posts`)
         .then(res=>res.json())
         .then(adat=>setPosts(adat))
         .catch(err=>console.log(err));
