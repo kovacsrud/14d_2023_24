@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import RandomUser from "./RandomUser";
+
 import UserSelect from "./UserSelect";
+import UserRender from "./UserRender";
 
 function RandomUsers() {
     const [randomusers, setRandomusers] = useState([]);
@@ -14,19 +15,27 @@ function RandomUsers() {
     }, [userNum]);
 
     return (
+       <>
         <div className="flex justify-center items-center">
-               <div className="flex-column">
-                    <p className="text-3xl mx-5">Users:{randomusers.length}</p>
+            <div className="flex-col">
+            <p className="text-3xl mx-5">Users:{randomusers.length}</p>
 
-                    <UserSelect setUserNum={setUserNum} />
+            <UserSelect setUserNum={setUserNum} />
+            </div>
+
+        </div>
+        <div className="grid justify-items-center lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
+               
+            
 
                     {
-                        randomusers.map((user, i) => (<RandomUser key={i} user={user} />))
+                        randomusers.map((user, i) => (<UserRender key={i} user={user} />))
                     }
-                </div>
+               
             
 
         </div>
+        </> 
     )
 }
 
