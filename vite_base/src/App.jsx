@@ -6,6 +6,8 @@ import JsonPholder from './components/JsonPholder';
 import Users from './components/Users';
 import Todos from './components/Todos';
 import Images from './components/Images';
+import Send from './components/Send';
+
 
 
 function App() {
@@ -13,10 +15,8 @@ function App() {
 
   return (
     <>
-      <Header headerText={"React app vite-al"}/>
-      <Images />
-      
-      
+      <Header headerText={"Adatküldés"}/>
+      <Send />          
       
     </>
   )
