@@ -4,7 +4,7 @@ import Main from './components/Main';
 import TanuloLista from './components/TanuloLista';
 import Ujtanulo from './components/UjTanulo';
 import ModositTanulo from './components/ModositTanulo';
-
+import { TanuloProvider } from './context/TanuloContext';
 
 
 function App() {
@@ -13,7 +13,9 @@ function App() {
   return (
     <>
       <h1 className="text-5xl font-bold text-center">Tanuló nyilvántartás</h1>    
+      
       <Router>
+      <TanuloProvider>
         <Navbar />
           <Routes>
             <Route path='/' element={<Main />} />
@@ -23,8 +25,9 @@ function App() {
             <Route path='*' element={<Navigate to={'/'} />} />
           </Routes>  
 
-
+          </TanuloProvider>
       </Router>
+      
 
     </>
   )
