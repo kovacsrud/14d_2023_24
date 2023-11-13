@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Main from './components/Main';
 import TanuloLista from './components/TanuloLista';
 import Ujtanulo from './components/UjTanulo';
+import ModositTanulo from './components/ModositTanulo';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
             <Route path='/' element={<Main />} />
             <Route path='/tanulok' element={<TanuloLista />} />
             <Route path='/ujtanulo' element={<Ujtanulo />} />
+            <Route path='/modosittanulo' element={<ModositTanulo />} />
             <Route path='*' element={<Navigate to={'/'} />} />
           </Routes>  
 
