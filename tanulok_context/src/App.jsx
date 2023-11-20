@@ -4,6 +4,7 @@ import Main from './components/Main';
 import TanuloLista from './components/TanuloLista';
 import Ujtanulo from './components/UjTanulo';
 import ModositTanulo from './components/ModositTanulo';
+import TanuloForm from './components/TanuloForm';
 import { TanuloProvider } from './context/TanuloContext';
 
 
@@ -20,8 +21,8 @@ function App() {
           <Routes>
             <Route path='/' element={<Main />} />
             <Route path='/tanulok' element={<TanuloLista />} />
-            <Route path='/ujtanulo' element={<Ujtanulo />} />
-            <Route path='/modosittanulo' element={<ModositTanulo />} />
+            <Route path='/ujtanulo' element={<TanuloForm />} />
+            <Route path='/modosittanulo' element={<TanuloForm />} />
             <Route path='*' element={<Navigate to={'/'} />} />
           </Routes>  
 

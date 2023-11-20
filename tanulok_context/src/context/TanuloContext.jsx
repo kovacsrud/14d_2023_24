@@ -33,6 +33,17 @@ export const TanuloProvider=({children})=>{
         alert(valasz);
       }
 
+      const adatfelvitel=async (url,method,formData)=>{
+        const keres=await fetch(url,{
+          method:method,
+          headers:{'Content-type':'application/json'},
+          body:JSON.stringify(formData)
+        })
+        const valasz=await keres.text();
+        update();
+        alert(valasz);        
+      }
+
       const modositas=async (id,formData)=>{
         const keres=await fetch(`http://127.0.0.1:8000/tanulok/${id}`,{
           method:'PATCH',
@@ -55,7 +66,7 @@ export const TanuloProvider=({children})=>{
         .catch(err=>alert(err));
     },[refresh]);
 
-    return <TanuloContext.Provider value={{tanulok,update,torles,adatkuldes,modositas,modosit}}>{children}</TanuloContext.Provider>
+    return <TanuloContext.Provider value={{tanulok,update,torles,adatkuldes,adatfelvitel,modositas,modosit}}>{children}</TanuloContext.Provider>
 }
 
 export default TanuloContext;
