@@ -12,6 +12,27 @@ export const TanuloProvider=({children})=>{
         setRefresh(prev=>!prev);
     }
 
+    //új tanuló felvitelekor aktualizálja a state-et fetch nélkül
+    const ujTanulo=(tanulo)=>{
+      setTanulok([...tanulok,tanulo]);
+    }
+
+    //módosításkor aktualizálja a tanuló state-et fetch nélkül
+    const modTanulo=(tanulo)=>{
+      const ujtanulok=tanulok.map(obj=>{
+        
+        if(obj.id==tanulo.id){
+          console.log(tanulo.szuletesi_hely)
+          console.log(tanulo)
+          return tanulo
+        }
+        return obj;
+        
+      });
+      setTanulok(ujtanulok);
+      
+    }
+
     const torles=(id)=>{
         fetch(`http://127.0.0.1:8000/tanulok/${id}`,{
          method:'DELETE',
@@ -66,7 +87,7 @@ export const TanuloProvider=({children})=>{
         .catch(err=>alert(err));
     },[refresh]);
 
-    return <TanuloContext.Provider value={{tanulok,update,torles,adatkuldes,adatfelvitel,modositas,modosit}}>{children}</TanuloContext.Provider>
+    return <TanuloContext.Provider value={{tanulok,ujTanulo,modTanulo,update,torles,adatkuldes,adatfelvitel,modositas,modosit}}>{children}</TanuloContext.Provider>
 }
 
 export default TanuloContext;

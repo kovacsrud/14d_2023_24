@@ -4,7 +4,7 @@ import TanuloContext from '../context/TanuloContext';
 
 function TanuloForm() {
     const navigate=useNavigate();
-    const {adatfelvitel}=useContext(TanuloContext);
+    const {adatfelvitel,ujTanulo,modTanulo}=useContext(TanuloContext);
     const {state}=useLocation();
     let method="POST";
     let url=`http://localhost:8000/tanulok`;
@@ -16,6 +16,7 @@ function TanuloForm() {
         const {tanulo}=state;
         url=`http://localhost:8000/tanulok/${tanulo.id}`;
         formObj={
+            id:tanulo.id,
             vezeteknev:tanulo.vezeteknev,
             keresztnev:tanulo.keresztnev,
             kor:tanulo.kor,
@@ -45,6 +46,16 @@ function TanuloForm() {
     const onSubmit = (e) => {
         e.preventDefault();
         adatfelvitel(url,method,formData);
+
+        //extra: a tanulók listájának aktualizásása anélkül,
+        //hogy újra fetchelnénk az adatokat a backendről
+        // if(method=="POST"){
+        //     ujTanulo(formData);
+        // }
+        // if(method=="PATCH"){
+        //     modTanulo(formData);
+        // }
+        
         navigate('/tanulok');
         // formObj={
         //   vezeteknev:"",
