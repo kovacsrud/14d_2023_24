@@ -33,7 +33,7 @@ function Characters() {
   // },[page])
 
   return (
-    <div><h1 className='text-2xl text-center font-bold'>Characters</h1>
+    <div><h1 className='text-2xl text-center font-bold'>Characters{import.meta.env.VITE_HEADER}</h1>
     <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 justify-items-center'>
       {
         characters.map((character,i)=>(<Character key={i} character={character} />))
