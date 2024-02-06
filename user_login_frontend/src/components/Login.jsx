@@ -15,12 +15,12 @@ function Login() {
         .then(token=>{
             if(!token.message){
                 sessionStorage.setItem('usertoken',token);
-                alert("Sikeres belépés!");
-                //toast.success("Sikeres belépés!");
+                //alert("Sikeres belépés!");
+                toast.success("Sikeres belépés!");
                 navigate('/');
             } else {
-                alert(token.message);
-                //toast.warning(token.message);
+                //alert(token.message);
+                toast.warning(token.message);
             }
 
         })

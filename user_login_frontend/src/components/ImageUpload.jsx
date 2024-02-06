@@ -1,6 +1,7 @@
 import { useState,useEffect,useContext } from "react";
 import {useNavigate} from 'react-router-dom';
 import UserContext from "../context/UserContext";
+import {toast} from "react-toastify";
 
 
 function ImageUpload() {
@@ -35,8 +36,11 @@ function ImageUpload() {
             body:adat
         })
         .then(res=>res.json())
-        .then(valasz=>{alert(valasz.message);update()})
-        .catch(err=>alert(err));
+        .then(valasz=>{
+            //alert(valasz.message);
+            toast.success(valasz.message);
+            update()})
+        .catch(err=>toast.error(err));
     }
 
     const imageChange=(e)=>{

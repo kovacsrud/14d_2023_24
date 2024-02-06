@@ -8,7 +8,8 @@ import { UserProvider } from "./context/UserContext";
 import { ImageProvider } from "./context/ImageContext";
 import ImageUpload from "./components/ImageUpload";
 import Images from "./components/Images";
-import {ToastContainer,toast} from 'react-toastify';
+import {ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 
 function App() {

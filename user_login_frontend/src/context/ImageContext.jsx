@@ -19,8 +19,8 @@ export const ImageProvider=({children})=>{
         })
         .then(res=>res.json())
         .then(valasz=>{
-            //toast.success(valasz.message,{position:'top-left',autoClose:1000});
-            alert(valasz.message);
+            toast.success(valasz.message,{position:'top-left',autoClose:1000});
+            //alert(valasz.message);
             update()})
         .catch(err=>alert(err));
     }
