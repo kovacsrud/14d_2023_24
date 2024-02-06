@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import {toast} from 'react-toastify';
 
 function Login() {
     const navigate = useNavigate();
@@ -15,9 +16,11 @@ function Login() {
             if(!token.message){
                 sessionStorage.setItem('usertoken',token);
                 alert("Sikeres belépés!");
+                //toast.success("Sikeres belépés!");
                 navigate('/');
             } else {
                 alert(token.message);
+                //toast.warning(token.message);
             }
 
         })

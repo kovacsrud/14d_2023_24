@@ -1,8 +1,11 @@
-import {createContext} from 'react';
+import {createContext,useContext} from 'react';
+import UserContext from './UserContext';
+import {toast} from 'react-toastify';
 
 const ImageContext=createContext();
 
 export const ImageProvider=({children})=>{
+    const {update}=useContext(UserContext);
     const token=sessionStorage.getItem('usertoken');
 
     const imgDelete=(imageId)=>{
@@ -14,8 +17,11 @@ export const ImageProvider=({children})=>{
             },
             body:JSON.stringify({imageId})
         })
-        .then(res=>res.text())
-        .then(valasz=>alert(valasz))
+        .then(res=>res.json())
+        .then(valasz=>{
+            //toast.success(valasz.message,{position:'top-left',autoClose:1000});
+            alert(valasz.message);
+            update()})
         .catch(err=>alert(err));
     }
 

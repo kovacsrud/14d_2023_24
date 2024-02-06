@@ -1,9 +1,9 @@
 import { useContext } from "react"
-import UserContext from "../context/UserContext"
+
 import ImageContext from "../context/ImageContext"
 
 function Image({path,imagename,imageid}) {
-    const {update}=useContext(UserContext);
+    
     const {imgDelete}=useContext(ImageContext);
   return (
     <div className="group cursor-pointer relative">
@@ -13,7 +13,7 @@ function Image({path,imagename,imageid}) {
       className="w-48 mx-auto object-cover rounded-lg transition-transform transform scale-100 group-hover:scale-105"
     />
     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-      <button onClick={()=>{imgDelete(imageid);update()}} className="bg-white text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors">
+      <button onClick={()=>{imgDelete(imageid);}} className="bg-white text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors">
         Törlés
       </button>
     </div>

@@ -8,6 +8,7 @@ import { UserProvider } from "./context/UserContext";
 import { ImageProvider } from "./context/ImageContext";
 import ImageUpload from "./components/ImageUpload";
 import Images from "./components/Images";
+import {ToastContainer,toast} from 'react-toastify';
 
 
 function App() {
@@ -28,9 +29,11 @@ function App() {
           <Route path="/images" element={<Images />} />
           <Route path="*" element={<Navigate to={'/'} />} />          
         </Routes>
+       
       </Router>
       </ImageProvider>
       </UserProvider>
+      <ToastContainer />
     </>
   )
 }

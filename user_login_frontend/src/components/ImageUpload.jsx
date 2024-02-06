@@ -1,8 +1,10 @@
-import { useState,useEffect } from "react";
+import { useState,useEffect,useContext } from "react";
 import {useNavigate} from 'react-router-dom';
+import UserContext from "../context/UserContext";
 
 
 function ImageUpload() {
+    const {update}=useContext(UserContext);
     const navigate=useNavigate();
     const token=sessionStorage.getItem('usertoken');
     const [images,setImages]=useState([]);
@@ -33,7 +35,7 @@ function ImageUpload() {
             body:adat
         })
         .then(res=>res.json())
-        .then(valasz=>alert(valasz.message))
+        .then(valasz=>{alert(valasz.message);update()})
         .catch(err=>alert(err));
     }
 
