@@ -8,7 +8,7 @@ import { UserProvider } from "./context/UserContext";
 import { ImageProvider } from "./context/ImageContext";
 import ImageUpload from "./components/ImageUpload";
 import Images from "./components/Images";
-import Imagebin from "./components/Imagebin";
+import ImagesBin from "./components/ImagesBin";
 import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 
@@ -28,7 +28,8 @@ function App() {
           <Route path="/register" element={<Register />}/>
           <Route path="/vedett" element={<Vedett />} />
           <Route path="/upload" element={<ImageUpload />} />
-          <Route path="/images" element={<Imagebin />} />
+          <Route path="/images" element={<Images />} />
+          <Route path="/imagesbin" element={<ImagesBin />}/>
           <Route path="*" element={<Navigate to={'/'} />} />          
         </Routes>
        
