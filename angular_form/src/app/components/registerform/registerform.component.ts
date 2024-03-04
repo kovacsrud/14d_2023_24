@@ -1,6 +1,8 @@
 import { NgFor, NgIf } from '@angular/common';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component,  OnInit } from '@angular/core';
 import { FormControl,FormGroup,ReactiveFormsModule,Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-registerform',
@@ -11,15 +13,14 @@ import { FormControl,FormGroup,ReactiveFormsModule,Validators } from '@angular/f
 })
 export class RegisterformComponent implements OnInit {
   
-  
+  constructor(private router:Router){}
+
 
   ngOnInit(): void {
     this.registerForm.valueChanges.subscribe(val=>console.log(val));
   }
 
- // ngOnDestroy(): void {
-    //this.registerForm.valueChanges.unsubscribe();
- // }
+ 
 
   
 
@@ -35,7 +36,8 @@ export class RegisterformComponent implements OnInit {
     .then(valasz=>{
       if(!valasz.message){
         sessionStorage.setItem('usertoken',valasz);
-        alert(valasz)
+        alert(valasz);
+        this.router.navigate(['/']);
       } else {
         alert(valasz.message);
       }
