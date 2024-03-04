@@ -1,0 +1,86 @@
+<div class="h-screen bg-gray-200 py-20 p-4 md:p-20 lg:p-32">
+  <div class="max-w-sm bg-white rounded-lg overflow-hidden shadow-lg mx-auto">
+    <div class="p-6">
+      <h2 class="text-2xl font-bold text-gray-800 mb-2">Regisztráció</h2>
+
+      <form (submit)="submit($event)" [formGroup]="registerForm">
+        <div class="mb-4">
+          <label class="block text-gray-700 font-bold mb-2" for="username">
+            Felhasználói név
+          </label>
+          <input formControlName="username"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="username"
+            type="text"
+            placeholder="felhasználói név"
+          />
+          <div *ngIf="getError('username','required')">
+            Az felhasználói név kötelező! 
+          </div>
+          <div *ngIf="getError('username','minlength') as err">
+            A felhasználói név nem elég hosszú! Minimum:{{err.requiredLength}} karakter.
+          </div>
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 font-bold mb-2" for="email">
+            E-mail cím
+          </label>
+          <input formControlName="email"
+             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="email"
+            type="text"
+            placeholder="email cím"
+          />
+          <div *ngIf="getError('email','required')">Kötelező megadni az email címet!</div>
+          <div *ngIf="getError('email','email')">Email címet kell megadni!</div>
+        </div>
+        <div class="mb-6">
+          <div class="mb-4">
+            <label class="block text-gray-700 font-bold mb-2" for="age">
+              Életkor
+            </label>
+            <input formControlName="age"
+              class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="age"
+              type="text"
+              placeholder="Életkor"
+            />
+            <div *ngIf="getError('age','required')">Adja meg az életkort!</div>
+            <div *ngIf="getError('age','min') as err">Az életkor nem lehet kisebb, mint:{{err.min}}</div>
+            <div *ngIf="getError('age','max') as err">Az életkor nem lehet nagyobb, mint:{{err.max}}</div>
+          </div>
+          <label class="block text-gray-700 font-bold mb-2" for="password">
+            Jelszó
+          </label>
+          <input formControlName="password"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="password"
+            type="password"
+            placeholder="jelszó"
+          />
+          <div *ngIf="getError('password','required')">Adja meg az jelszót!</div>
+          <div *ngIf="getError('password','minlength') as err">A jelszó minimum {{err.requiredLength}} karakter hosszú legyen!</div>
+          <label class="block text-gray-700 font-bold mb-2" for="password">
+            Jelszó ismét
+          </label>
+          <input formControlName="passwordagain"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="passwordagain"
+            type="password"
+            placeholder="jelszó ismét"
+          />
+          <div *ngIf="getError('passwordagain','required')">Adja meg ismét a jelszót!</div>
+          <div *ngIf="getError('passwordagain','minlength') as err">A jelszó minimum {{err.requiredLength}} karakter hosszú legyen!</div>
+        </div>
+        <div class="flex items-center justify-between">
+          <button
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            type="submit"
+          >
+            Küldés
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
