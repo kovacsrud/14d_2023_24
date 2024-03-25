@@ -15,6 +15,9 @@ export class RegisterformComponent implements OnInit {
   
   constructor(private router:Router){}
 
+  //Így is működik
+  //private router:Router=new Router();
+
 
   ngOnInit(): void {
     this.registerForm.valueChanges.subscribe(val=>console.log(val));
