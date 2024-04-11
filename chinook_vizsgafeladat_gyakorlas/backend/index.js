@@ -47,7 +47,7 @@ app.post('/genres',(req,res)=>{
         }
         console.log(this.lastID);
       
-        res.status(201).json({message:"Beszúrás rendben "+this.lastID});
+        res.status(201).json({message:"Beszúrás rendben"});
         
 
     });
@@ -63,7 +63,7 @@ app.post('/artist',(req,res)=>{
         }
         console.log(this.lastID);
       
-        res.status(201).json({message:"Beszúrás rendben "+this.lastID});
+        res.status(201).json({message:"Beszúrás rendben"});
         
 
     });
@@ -99,7 +99,7 @@ app.delete('/genres/:id',(req,res)=>{
         }  
         console.log(this.changes);
         if(this.changes==1){
-            res.status(204).send(`Törölve`);
+            res.status(204).json({message:"Törölve"});
         } else {
             res.status(200).json({message:"Nincs ilyen Id"});
         }
